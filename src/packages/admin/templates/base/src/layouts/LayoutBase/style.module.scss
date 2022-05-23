@@ -1,0 +1,57 @@
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 48px;
+  box-shadow: rgb(0 21 41 / 8%) 0px 2px 4px;
+  z-index: 1;
+  padding: 0 20px;
+}
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 48px;
+  box-sizing: border-box;
+  display: flex;
+}
+.side {
+  position: relative;
+  width: 250px;
+  box-shadow: rgb(0 21 41 / 8%) 2px 0 4px;
+  z-index: 1;
+}
+.content {
+  flex: 1;
+  padding: 25px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+}
+.logo {
+  font-size: 18px;
+  height: 48px;
+  line-height: 48px;
+  margin-left: 10px;
+}
+.avator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.logoImg {
+  width: 30px;
+  height: 30px;
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+}
+.doc {
+  margin: 0 20px;
+}

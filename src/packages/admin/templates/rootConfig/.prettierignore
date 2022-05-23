@@ -1,0 +1,10 @@
+# dependencies
+node_modules
+
+# output
+dist
+build
+out
+.next
+
+public
