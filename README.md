@@ -64,13 +64,16 @@ cli是为了给开发提效节省工作量，同时cli读取整个源码更加�
 
 ##### 2.4 包裹词条的用例（正则匹配配置文件的packReg属性值）
 ##### 2.4.1 example1 普通字符串:
+```
 '中文3 中文3' => $t('中文3 中文3')
+```
 匹配到配置文件的packReg的中文，使用配置文件中的packFunction包裹。
 
-##### 2.4.2 example2 模版字符串:
-模版字符串需要映射到[i18next插值](https://www.i18next.com/translation-function/interpolation)
+##### 2.4.2 example2 模版字符串，需要映射到[i18next插值](https://www.i18next.com/translation-function/interpolation):
 ##### 2.4.2.1 模版只有字符串
+```
 `你好啊` => $t('你好啊')
+```
 ##### 2.4.2.2 模版只有变量
 这种情况正常是不要包裹的，只要变量名不是匹配的中文
 ##### 2.4.2.3 模版有字符串和变量组合
@@ -86,6 +89,7 @@ const str = `${headStr}你好 ${nums}个国家, ${count}个苹果${tailStr}`;
 ```
 const str = $t('{{headStr}}你好 {{nums}}个国家, {{count}}个苹果{{tailStr}}', { headStr, nums, count, tailStr });
 ```
+i18next复数是根据count变量判断，只需要变量中有count就可以了
 ##### 2.4.2.4 模版有字符串、变量、函数调用组合
 ```
 const headStr = '1';
@@ -109,9 +113,30 @@ const str = $t('{{headStr}}你好{{sayName}} {{nums}}个国家, {{count}}个苹�
   tailStr,
 });
 ```
-##### 2.4.2.6 模版字符串类型控制！！！
+##### 2.4.2.5 模版字符串类型控制！！！
 目前模版字符串只支持"普通字符串"、"变量"、"函数调用"三种类型。其中函数调用的参数只支持字符串和变量传参，可能后续会不支持函数调用，慎重在模版里面函数调用。
 所以模版字符串优先考虑只有普通字符串和变量。
+##### 2.4.3 example3 jsx组件的属性或者jsx内容文本:
+```
+function Hello() {
+  return (
+    <div attr="中文1">
+        中文2
+    </div>
+  );
+}
+```
+包裹如下：
+```
+function Hello() {
+  return <div attr={$t('中文1')}>{$t('中文2')}</div>;
+}
+```
+##### 2.5 几种常见场景但不会包裹的情况
+##### 2.5.1 词条作为函数调用的参数，如: fun('中文')
+##### 2.5.2 作为对象的key或者value，如: const obj = {"你好": "世界"}
+##### 2.5.3 作为<Trans>的子节点，如：<Trans><div>中文</div></Trans>
+##### 2.5.4 模版字符串除了字符串、变量、函数调用的其他类型，如：`你好${[1,2,3]}啊`，建议作为一个变量提到外面，再在模版中引入
 
 ### 3 多语言提取
 ##### 3.1 使用
@@ -122,3 +147,6 @@ npx fostar lang-collect
 本地生成不同语言的json文件是为了不同语言单复数问题，如下图：
 ![image](https://raw.githubusercontent.com/chenjianfang/fostar/master/test/word.jpg)
 英文复数新增了一个"_plural"后缀。
+
+### 4 难点
+
