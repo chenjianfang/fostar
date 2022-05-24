@@ -1,19 +1,18 @@
-### 全局安装
+### 安装
 ```
-npm i -g fostar
+npm i -g fostar // 全局安装
+```
+```
+npx fostar // npx安装
+```
+```
+fostar -h // 查看帮助
 ```
 
-### npx安装
-```
-npx fostar
-```
-
-###查看帮助
-```
-fostar -h
-```
+###### 细节较多，熟悉后使用 1.1、2.1、3.1的命令做多语言自动化
 
 ## 1 多语言配置初始化 
+#### 1.1 使用
 ```
 npx fostar lang-init
 ```
