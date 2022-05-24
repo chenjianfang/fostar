@@ -11,32 +11,34 @@ const cwd = require('utils/cwd');
  */
 function writeEslintFile(code, pathFile) {
   const { config: customEslintConfig } = getConfig('eslint');
-  if (!customEslintConfig) {
-    return error('没找到eslint配置，跳过eslint fix');
+  let eslint;
+  if (customEslintConfig) {
+    // 找到项目的eslnt配置文件
+    eslint = new ESLint({
+      fix: true,
+      cwd,
+      overrideConfig: customEslintConfig,
+    });
   }
-
-  const eslint = new ESLint({
-    fix: true,
-    cwd,
-    overrideConfig: customEslintConfig,
-  });
 
   fs.writeFile(pathFile, code, async (err) => {
     if (err) {
       return error(err);
     }
 
-    // eslint fix
-    const result = await eslint.lintFiles(pathFile);
-    result.forEach(({ pathFileFix, output }) => {
-      if (pathFileFix && output) {
-        fs.writeFile(pathFileFix, output, async (err) => {
-          if (err) {
-            return error(err);
-          }
-        });
-      }
-    });
+    if (eslint) {
+      // eslint fix
+      const result = await eslint.lintFiles(pathFile);
+      result.forEach(({ pathFileFix, output }) => {
+        if (pathFileFix && output) {
+          fs.writeFile(pathFileFix, output, async (err) => {
+            if (err) {
+              return error(err);
+            }
+          });
+        }
+      });
+    }
   });
 }
 

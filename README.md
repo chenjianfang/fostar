@@ -3,7 +3,7 @@
 npm i -g fostar // 全局安装
 ```
 ```
-npx fostar // npx安装
+npx fostar // npx安装 （推荐使用）
 ```
 ```
 fostar -h // 查看帮助

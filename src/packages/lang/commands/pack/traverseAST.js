@@ -57,6 +57,14 @@ const traverseAST = (ast, packReg, packFunction) => {
 
     // 模版字符串
     TemplateLiteral(path) {
+      let hasMatch = false;
+      if (path?.node?.quasis?.length) {
+        hasMatch = path.node.quasis.find((word) => reg.test(word));
+      }
+      if (!hasMatch) {
+        return;
+      }
+
       const { expressions, quasis } = path.node;
       let str = '';
       const objPropsList = [];
