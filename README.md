@@ -9,7 +9,7 @@ npx fostar // npx安装
 fostar -h // 查看帮助
 ```
 
-###### 细节较多，熟悉后使用 1.1、2.1、3.1的命令做多语言自动化
+###### 细节较多，熟悉后使用 [1.1](https://github.com/chenjianfang/fostar#11-%E4%BD%BF%E7%94%A8) 、[2.1](https://github.com/chenjianfang/fostar#21-%E4%BD%BF%E7%94%A8) 、[3.1](https://github.com/chenjianfang/fostar#31-%E4%BD%BF%E7%94%A8) 的命令做多语言自动化
 
 ## 1 多语言配置初始化 
 #### 1.1 使用
