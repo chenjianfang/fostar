@@ -122,5 +122,5 @@ npx fostar lang-collect
 ```
 会扫描ns.home.src的源码中包含packFunction和Trans组件包裹的词条，如上面的示例$t包裹的词条会按照配置文件中的lngs，提取到根目录的i18n，以json文件后缀。
 本地生成不同语言的json文件是为了不同语言单复数问题，如下图：
-![]()
+![单复数](https://github.com/chenjianfang/fostar/blob/master/test/word.jpg)
 英文复数新增了一个"_plural"后缀。
