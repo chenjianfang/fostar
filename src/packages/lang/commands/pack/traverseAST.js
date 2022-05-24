@@ -122,7 +122,11 @@ const traverseAST = (ast, packReg, packFunction) => {
       const newStr = t.stringLiteral(str);
 
       if (newStr) {
-        const pack = t.callExpression(t.identifier(packFunction), [newStr, t.objectExpression(objPropsList)]);
+        const callArgs = [newStr];
+        if (objPropsList.length) {
+          callArgs.push(t.objectExpression(objPropsList));
+        }
+        const pack = t.callExpression(t.identifier(packFunction), callArgs);
         path.replaceWith(pack);
       }
     },

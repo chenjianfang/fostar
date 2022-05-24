@@ -1,0 +1,5 @@
+{
+  "k_0roxr70": "hello, {{name}}",
+  "k_0vzxxqg": "{{headStr}}你好{{sayName}} {{nums}}个国家, {{count}}个苹果{{tailStr}}",
+  "k_0vzxxqg_plural": "{{headStr}}你好{{sayName}} {{nums}}个国家, {{count}}个苹果{{tailStr}}"
+}
