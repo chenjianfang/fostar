@@ -1,6 +1,6 @@
 {
   "name": "fostar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -8,7 +8,8 @@
   },
   "scripts": {
   },
-  "author": "",
+  "keywords": ["i18n", "i18next"],
+  "author": "chenjianfang",
   "license": "ISC",
   "dependencies": {
     "@babel/generator": "^7.16.5",
