@@ -59,7 +59,7 @@ const traverseAST = (ast, packReg, packFunction) => {
     TemplateLiteral(path) {
       let hasMatch = false;
       if (path?.node?.quasis?.length) {
-        hasMatch = path.node.quasis.find((word) => reg.test(word));
+        hasMatch = path.node.quasis.find((word) => reg.test(word.value.raw));
       }
       if (!hasMatch) {
         return;
